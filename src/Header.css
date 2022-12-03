@@ -1,0 +1,16 @@
+.appHeader{
+    background: #02203c;
+    background:linear-gradient(rgba(2, 32, 60, 100), #0b427e);
+}
+img{
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: 7px;
+}
+
+span{
+    color: white;
+    font-size: x-large;
+    font-family: Jura,Helvetica,Arial,sans-serif;
+    margin:5px;
+}

@@ -1,0 +1,83 @@
+.background-radial-gradient {
+    background-color: hsl(218, 41%, 15%);
+    height: 100vh;
+    background-image: radial-gradient(650px circle at 0% 0%,
+    hsl(218, 41%, 35%) 15%,
+    hsl(218, 41%, 30%) 35%,
+    hsl(218, 41%, 20%) 75%,
+    hsl(218, 41%, 19%) 80%,
+    transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+            hsl(218, 41%, 45%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%);
+}
+
+#radius-shape-1 {
+    height: 220px;
+    width: 220px;
+    top: -60px;
+    left: -130px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+}
+
+#radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -110px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+}
+
+.bg-glass {
+    background-color: hsla(0, 0%, 100%, 0.9) !important;
+    backdrop-filter: saturate(200%) blur(25px);
+}
+
+#nurseLogin{
+    background: #bb20dd;
+    width: 190px;
+    height: 38px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    background:linear-gradient(rgb(187, 32, 221), #801c96);
+}
+
+#nurseLogin:hover {
+    background-color: #620d75;
+    box-shadow: 0px 15px 20px rgb(98, 67, 105);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+#doctorLogin{
+    background: #626ee3;
+    width: 190px;
+    height: 38px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    background:linear-gradient(rgb(98, 110, 227), #3d469f);
+}
+
+#doctorLogin:hover {
+    background-color: #41499b;
+    box-shadow: 0px 15px 20px rgb(81, 86, 143);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+#image{
+    width: 18rem;
+    height: 5rem;
+}
+
+#errorLabel{
+    color: rgba(255,8,43,0.9);
+}
