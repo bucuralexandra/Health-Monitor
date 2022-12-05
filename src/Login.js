@@ -51,7 +51,7 @@ function Login() {
        {
            localStorage.setItem("nursep" , nurse.password);
            localStorage.setItem("nursee" , nurse.email);
-           navigate('/');
+           navigate('/nurse');
        }
        else{
            email.value = '';
@@ -72,7 +72,7 @@ function Login() {
         {
             localStorage.setItem("doctorp" , doctor.password);
             localStorage.setItem("doctore" , doctor.email);
-            navigate('/');
+            navigate('/doctor');
         }else{
             email.value = '';
             password.value = '';

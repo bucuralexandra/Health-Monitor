@@ -25,6 +25,32 @@
     color: #fff;
     transform: translateY(-7px);
 }
+#manageappointments{
+    background: #3c9336;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    background:linear-gradient(rgb(73, 204, 64), #3c9336);
+}
+#manageappointments:hover {
+    background-color: #3C9336FF;
+    box-shadow: 0px 15px 20px rgb(33, 82, 30);
+    color: #fff;
+    transform: translateY(-7px);
+}
+#seevitals{
+    background: rgba(171, 17, 40, 0.9);
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    background:linear-gradient(rgb(171, 17, 40, 0.9), rgba(166, 42, 61, 0.9));
+}
+#seevitals:hover {
+    background-color: #AB1128E5;
+    box-shadow: 0px 15px 20px rgba(75, 5, 15, 0.9);
+    color: #fff;
+    transform: translateY(-7px);
+}
 .card{
     margin: 0.9rem;
     width: 18rem;
