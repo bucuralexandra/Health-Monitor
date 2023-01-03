@@ -10,14 +10,21 @@ import picture from "./images/picture.svg"
 import files from "./images/file-earmark-medical-fill.svg"
 import React from "react";
 
+
+
 function DoctorPage() {
 
+    const navigate = useNavigate();
+
+    const navigateManageAppointments = () => {
+        navigate('/doctor/manageAppointments');
+    };
 
     return (
         <div className="UserPage">
             <Header></Header>
             <div className="list">
-                <div className="card" id="doctorcard">
+                <div className="card" id="doctorcard"  onClick={navigateManageAppointments}>
                     <img className="card-img-top" src={calendar} alt={calendar} />
                     <div className="card-body">
                         <p className="card-text">Manage Appointments</p>

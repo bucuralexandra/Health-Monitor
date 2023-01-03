@@ -7,6 +7,7 @@ import React from "react";
 import HomePage from "./HomePage";
 import NursePage from "./NursePage";
 import DoctorPage from "./DoctorPage";
+import ManageAppointments from "./ManageAppointments";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/nurse" element={<NursePage />} />
                 <Route path="/doctor" element={<DoctorPage/>} />
+                <Route path="/doctor/manageAppointments" element={<ManageAppointments/>} />
             </Routes>
         </BrowserRouter>
   );

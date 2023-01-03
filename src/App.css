@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 #doctorcard{
     background: #626ee3;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
@@ -74,4 +75,81 @@
     width: 18rem;
     height: 18rem;
     margin-left: calc(60% - 18rem);
+}
+
+#container{
+    box-shadow: 0 15px 30px 1px grey;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5em auto;
+    height: 10em;
+    width: 30vw;
+}
+
+.product-details {
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+    padding: 3px;
+    height: 100%;
+    float: left;
+    width: 40%;
+
+}
+#container .product-details h1{
+    font-family: 'Bebas Neue', cursive;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    color: #344055;
+    margin: 0;
+}
+
+#container .product-details h1:before{
+    position: absolute;
+    content: '';
+    right: 0%;
+    top: 0%;
+    transform: translate(25px, -15px);
+    font-family: 'Bree Serif', serif;
+    display: inline-block;
+    background: #ffe6e6;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 5px;
+    color: white;
+    margin: 0;
+    animation: chan-sh 6s ease infinite;
+}
+#container .product-details > p {
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 100;
+    color: #7d7d7d;
+
+}
+.control{
+
+    bottom: 5%;
+    width: 100%;
+    display: flex;
+    overflow: visible;
+
+}
+.pendingAppointments
+{
+    max-width: 50%;
+    width: 50%;
+}
+.approvedAppointments
+{
+    max-width: 50%;
+    width: 50%;
+    border-left: #0b427e;
+}
+.appointment
+{
+margin-top: 2%;
 }
