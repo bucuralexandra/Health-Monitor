@@ -25,7 +25,7 @@ function AppointmentCard(props)
         console.log("Date selected " +format(props.date, 'dd-MM-yyyy'));
         const newList = props.appointments.filter((item) => item.date == format(props.date, 'dd-MM-yyyy'));
         SetAppointments(newList);
-    }, [props.appointments]);
+    }, [props]);
 
 
     function approve(id) {
