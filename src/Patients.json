@@ -5,7 +5,9 @@
     "name" : "Bucur Alexandra",
     "dateBirth" : "13-05-2000",
     "alergies" : "none",
-    "recentCondition" : "headache"
+    "recentCondition" : "headache",
+    "maxHeartRate" : "150",
+    "currentHeartRate" : "109"
   },
   {
     "id" : "2",
@@ -13,7 +15,9 @@
     "name" : "Pop Mihai",
     "dateBirth" : "23-05-2001",
     "alergies" : "peanuts, rasberries",
-    "recentCondition" : "CT"
+    "recentCondition" : "CT",
+    "maxHeartRate" : "150",
+    "currentHeartRate" : "161"
   },
   {
     "id" : "3",
@@ -21,7 +25,9 @@
     "name" : "Sergiu Gaga",
     "dateBirth" : "13-05-2000",
     "alergies" : "none",
-    "recentCondition" : "control"
+    "recentCondition" : "control",
+    "maxHeartRate" : "120",
+    "currentHeartRate" : "110"
   },
   {
     "id" : "4",
@@ -29,7 +35,9 @@
     "name" : "Pop Bogdan",
     "dateBirth" : "13-05-2000",
     "alergies" : "none",
-    "recentCondition" : "headache"
+    "recentCondition" : "headache",
+    "maxHeartRate" : "100",
+    "currentHeartRate" : "117"
   },
   {
     "id" : "5",
@@ -37,7 +45,9 @@
     "name" : "Monica Slavescu",
     "dateBirth" : "09-09-2000",
     "alergies" : "none",
-    "recentCondition" : "headache"
+    "recentCondition" : "headache",
+    "maxHeartRate" : "110",
+    "currentHeartRate" : "100"
   },
   {
     "id" : "6",
@@ -45,7 +55,9 @@
     "name" : "Briana Hulpe",
     "dateBirth" : "13-06-2000",
     "alergies" : "milk",
-    "recentCondition" : "eye stuff"
+    "recentCondition" : "eye stuff",
+    "maxHeartRate" : "120",
+    "currentHeartRate" : "121"
   }
 
 ]

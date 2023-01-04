@@ -1,5 +1,7 @@
 import { React } from 'react'
 import data from "./Patients.json"
+import {Button} from "react-bootstrap";
+import userLogo from "./images/person-circle.svg";
 
 function ListPatients(props) {
     //create a new array by filtering the original array
@@ -16,7 +18,26 @@ function ListPatients(props) {
     return (
         <ul>
             {filteredData.map((item) => (
-                <li key={item.id}>{item.name}</li>
+                <li key={item.id} style={{listStyle: "none"}}>
+                    <div className='p-2 flex-fill ' key={item.id} id="element" >
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                        <div id="container" style={{width: "92vw", padding: "17px"}}>
+                            <img id="image" src={userLogo} alt={userLogo}/>
+                            <Button variant="outline-dark" >See full data</Button>
+                            <div className="product-details" >
+                                <h1>{item.name}</h1>
+                                <br></br>
+                                <br></br>
+                                <h1 style={{fontSize:"12px"}}>Date of birth: {item.dateBirth}</h1>
+                                <br></br>
+                                <h1 style={{fontSize:"15px"}}><strong>Alergies </strong> {item.alergies}</h1>
+                                <br></br>
+                                <h1 style={{fontSize:"15px"}}><strong>Recent condition </strong>{item.recentCondition}</h1>
+                                <br></br>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             ))}
         </ul>
     )
