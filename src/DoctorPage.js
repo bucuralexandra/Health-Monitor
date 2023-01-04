@@ -20,6 +20,19 @@ function DoctorPage() {
         navigate('/doctor/manageAppointments');
     };
 
+    const navigateSeeVitals = () => {
+        navigate('/doctor/seeVitals');
+    };
+
+    const navigateSeeFiles= () => {
+        navigate('/doctor/seeFiles');
+    };
+
+    const navigatePersonalizeAlerts= () => {
+        console.log("Am apasat aici si nu mergeeee pe pagina. UPDATE: merge:)")
+        navigate('/doctor/alerts');
+    };
+
     return (
         <div className="UserPage">
             <Header></Header>
@@ -30,19 +43,20 @@ function DoctorPage() {
                         <p className="card-text">Manage Appointments</p>
                     </div>
                 </div>
-                <div className="card" id="nursecard" >
+                {/*Aici am pus nurse card sau doctor card pentru ca au anumite stylinguri si le refolosesc:)*/}
+                <div className="card" id="nursecard" onClick={navigateSeeFiles}>
                     <img className="card-img-top" src={files} alt={files} />
                     <div className="card-body">
                         <p className="card-text">See patients' files</p>
                     </div>
                 </div>
-                <div className="card" id="manageappointments" >
-                    <img className="card-img-top" src={bell} alt={bell} />
+                <div className="card" id="manageappointments"  onClick={navigatePersonalizeAlerts}>
+                    <img className="card-img-top" src={bell} alt={bell}/>
                     <div className="card-body">
                         <p className="card-text">Personalize alerts</p>
                     </div>
                 </div>
-                <div className="card" id="seevitals" >
+                <div className="card" id="seevitals" onClick={navigateSeeVitals}>
                     <img className="card-img-top" src={arrow} alt={arrow} />
                     <div className="card-body">
                         <p className="card-text">See patients' vitals</p>

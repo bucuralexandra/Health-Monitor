@@ -53,6 +53,7 @@ function AppointmentCard(props)
 
     return(<div style={{display: "flex"}}>
                 <div className="approvedAppointments">
+                    <p>Approved appointments</p>
                         {approvedAppointments && approvedAppointments.map((item) => (
                             <div>
                                 <div className='d-flex flex-wrap justify-content-center appointment'> 
@@ -64,6 +65,9 @@ function AppointmentCard(props)
                                                 <br></br>
                                                 <h1 style={{fontSize:"14px"}}>{item.motive}</h1>
                                                 <br></br>
+                                                <h1>{item.time}</h1>
+                                                <br></br>
+                                                <h1  style={{fontSize:"12px"}}> {item.phone}</h1>
                                                 <br></br>
 
                                                 <div className="control" hidden={ item.status === "approved"}>
@@ -79,6 +83,7 @@ function AppointmentCard(props)
                         ))}
                 </div>
                 <div className="pendingAppointments">
+                    <p>Incoming appointments</p>
                     {pendingAppointments && pendingAppointments.map((item)=>(
                             <div className='p-2 flex-fill ' key={item.id} id="element" >
                                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -87,6 +92,9 @@ function AppointmentCard(props)
                                         <h1>{item.name}</h1>
                                         <br></br>
                                         <h1 style={{fontSize:"14px"}}>{item.motive}</h1>
+                                        <br></br>
+                                        <h1>{item.time}</h1>
+                                        <br></br>
                                         <br></br>
                                         <br></br>
                                         <div className="control" hidden={ item.status === "approved"}>
@@ -126,7 +134,8 @@ let APPOINTMENTS = [
         name : "Matei Pop",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "pending"
+        status : "pending",
+        phone: "0733928191"
     },
     {
         id : "2",
@@ -135,7 +144,8 @@ let APPOINTMENTS = [
         name : "Bucur Alexandra",
         doctor : "Dr. Who",
         motive : "PreOp",
-        status : "pending"
+        status : "pending",
+        phone: "0733106191"
     },
     {
         id : "3",
@@ -144,7 +154,8 @@ let APPOINTMENTS = [
         name : "Sergiu Gaga",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "pending"
+        status : "pending",
+        phone: "0712348191"
     },
     {
         id : "4",
@@ -153,7 +164,8 @@ let APPOINTMENTS = [
         name : "Mihai Pop",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "pending"
+        status : "pending",
+        phone: "0733921234"
     },
     {
         id : "5",
@@ -162,7 +174,8 @@ let APPOINTMENTS = [
         name : "Maria Antoaneta",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "pending"
+        status : "pending",
+        phone: "0733928111"
     },
     {
         id : "6",
@@ -171,7 +184,8 @@ let APPOINTMENTS = [
         name : "Matei Pop approved",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "approved"
+        status : "approved",
+        phone: "0733928191"
     },
     {
         id : "7",
@@ -180,7 +194,8 @@ let APPOINTMENTS = [
         name : "Bucur Alexandra approved",
         doctor : "Dr. Who",
         motive : "PreOp",
-        status : "approved"
+        status : "approved",
+        phone: "0733928191"
     },
     {
         id : "8",
@@ -189,7 +204,8 @@ let APPOINTMENTS = [
         name : "Sergiu Gaga approved",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "approved"
+        status : "approved",
+        phone: "0733928191"
     },
     {
         id : "9",
@@ -198,7 +214,8 @@ let APPOINTMENTS = [
         name : "Mihai Pop approved",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "approved"
+        status : "approved",
+        phone: "0733928191"
     },
     {
         id : "10",
@@ -207,7 +224,8 @@ let APPOINTMENTS = [
         name : "Maria Antoaneta approved",
         doctor : "Dr. Who",
         motive : "Control",
-        status : "approved"
+        status : "approved",
+        phone: "0733928191"
     }
 ]
 export default AppointmentCard;

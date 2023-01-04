@@ -8,6 +8,9 @@ import HomePage from "./HomePage";
 import NursePage from "./NursePage";
 import DoctorPage from "./DoctorPage";
 import ManageAppointments from "./ManageAppointments";
+import SeeVitals from "./SeeVitals";
+import SeeFiles from "./SeeFiles";
+import PersonalizeAlerts from "./PersonalizeAlerts";
 
 function App() {
 
@@ -19,6 +22,9 @@ function App() {
                 <Route path="/nurse" element={<NursePage />} />
                 <Route path="/doctor" element={<DoctorPage/>} />
                 <Route path="/doctor/manageAppointments" element={<ManageAppointments/>} />
+                <Route path="/doctor/seeVitals" element={<SeeVitals/>} />
+                <Route path="/doctor/seeFiles" element={<SeeFiles/>} />
+                <Route path="/doctor/alerts" element={<PersonalizeAlerts/>} />
             </Routes>
         </BrowserRouter>
   );

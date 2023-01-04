@@ -1,0 +1,51 @@
+[
+  {
+    "id" : "1",
+    "username" : "abucur",
+    "name" : "Bucur Alexandra",
+    "dateBirth" : "13-05-2000",
+    "alergies" : "none",
+    "recentCondition" : "headache"
+  },
+  {
+    "id" : "2",
+    "username" : "mpop",
+    "name" : "Pop Mihai",
+    "dateBirth" : "23-05-2001",
+    "alergies" : "peanuts, rasberries",
+    "recentCondition" : "CT"
+  },
+  {
+    "id" : "3",
+    "username" : "sgaga",
+    "name" : "Sergiu Gaga",
+    "dateBirth" : "13-05-2000",
+    "alergies" : "none",
+    "recentCondition" : "control"
+  },
+  {
+    "id" : "4",
+    "username" : "bpop",
+    "name" : "Pop Bogdan",
+    "dateBirth" : "13-05-2000",
+    "alergies" : "none",
+    "recentCondition" : "headache"
+  },
+  {
+    "id" : "5",
+    "username" : "mslav",
+    "name" : "Monica Slavescu",
+    "dateBirth" : "09-09-2000",
+    "alergies" : "none",
+    "recentCondition" : "headache"
+  },
+  {
+    "id" : "6",
+    "username" : "bhulpe",
+    "name" : "Briana Hulpe",
+    "dateBirth" : "13-06-2000",
+    "alergies" : "milk",
+    "recentCondition" : "eye stuff"
+  }
+
+]
