@@ -157,3 +157,11 @@ margin-top: 2%;
     margin-top: 1em;
     padding: 0;
 }
+.MuiTypography-root {
+color: black;
+}
+
+.menubutton{
+    display: flex;
+    float: right;
+}

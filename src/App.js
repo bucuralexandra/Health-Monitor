@@ -11,6 +11,7 @@ import ManageAppointments from "./ManageAppointments";
 import SeeVitals from "./SeeVitals";
 import SeeFiles from "./SeeFiles";
 import PersonalizeAlerts from "./PersonalizeAlerts";
+import MonitorPatients from "./MonitorPatients";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/doctor/seeVitals" element={<SeeVitals/>} />
                 <Route path="/doctor/seeFiles" element={<SeeFiles/>} />
                 <Route path="/doctor/alerts" element={<PersonalizeAlerts/>} />
+                <Route path="/nurse/monitor" element={<MonitorPatients/>} />
             </Routes>
         </BrowserRouter>
   );
