@@ -12,13 +12,18 @@ import SeeVitals from "./SeeVitals";
 import SeeFiles from "./SeeFiles";
 import PersonalizeAlerts from "./PersonalizeAlerts";
 import MonitorPatients from "./MonitorPatients";
+import Header from './Header';
+import PdfViewer from './PdfViewer';
 
 function App() {
 
   return (
+    <div>
+        {false && <Header></Header>}
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/pdf" element={<PdfViewer />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/nurse" element={<NursePage />} />
                 <Route path="/doctor" element={<DoctorPage/>} />
@@ -29,6 +34,7 @@ function App() {
                 <Route path="/nurse/monitor" element={<MonitorPatients/>} />
             </Routes>
         </BrowserRouter>
+    </div>
   );
 
 }

@@ -7,35 +7,37 @@ import React, {useEffect, useState} from "react";
 import Calendar from "react-calendar";
 import AppointmentCard from "./AppointmentCard"
 import {Button} from "react-bootstrap";
+import { margin } from '@mui/system';
 
 
 function ManageAppointments() {
 
     const [date, setDate] = useState(new Date());
-    const [isVisible, setIsVisible] = useState(false);
 
     const onDateChange = (newDate) => {
         setDate( newDate);
         console.log("New date:" +newDate);
     }
 
-    const handleVisibility = (e) => {
-        console.log("Button is fucking clicked")
-        setIsVisible(!isVisible);
-    };
+   
 
-    const handleVisibleChange = (e) => {
-        console.log(e);
-    };
 
     return (
+        <div>
+        <Header></Header>
         <div className="AppointmentsPage">
-            <Header></Header>
-            <Button onClick={handleVisibility}>Button</Button>
-            <Calendar locale="en-GB" onChange={onDateChange}
+            <div style={{width:"fit-content", margin:"auto", marginTop:"2%"}}>
+            <Calendar 
+                      locale="en-GB" onChange={onDateChange}
+                      calendarType="US"
                       value={date}
-                      onVisibleChange={handleVisibleChange}/>
+                      />
+            </div>
+            <br></br>
+            <br></br>
+            
            <AppointmentCard date={date}/>
+        </div>
         </div>
     );
 

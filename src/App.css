@@ -83,7 +83,7 @@
     border-radius: 5px;
     overflow: hidden;
     height: 10em;
-    width: 30vw;
+    width: 100%;
 }
 
 .product-details {
@@ -137,15 +137,19 @@
 
 }
 .pendingAppointments
-{
-    margin-top: 1em;
-    max-width: 50%;
+{   height: 10%;
     width: 50%;
 }
 .approvedAppointments
-{
-    margin-left: 5em;
-    width: 70%;
+{  
+    height: 10%;
+    width: 50%;
+}
+.AppointmentsPage
+{   
+    height: 10%;
+    margin: auto;
+    width: 85%;
 }
 .appointment
 {
@@ -157,6 +161,7 @@ margin-top: 2%;
     margin-top: 1em;
     padding: 0;
 }
+
 .MuiTypography-root {
 color: black;
 }
@@ -177,3 +182,9 @@ li{
 .div-chat{
     height : 35px;
 }
+
+.react-calendar__navigation__label__labelText
+{
+    color:black;
+}
+
