@@ -1,5 +1,15 @@
 [
   {
+    "id" : "0",
+    "username" : "drosca",
+    "name" : "Diana Rosca",
+    "dateBirth" : "08-10-1975",
+    "alergies" : "none",
+    "recentCondition" : "control",
+    "maxHeartRate" : "100",
+    "currentHeartRate" : "109"
+  },
+  {
     "id" : "1",
     "username" : "abucur",
     "name" : "Bucur Alexandra",
