@@ -90,6 +90,11 @@ function Header() {
                             <ListItemText className="menuitem">Patient Files</ListItemText>
                             </MenuItem>
                         }
+                        { loggedNurse === "ioana.popescu@nurse.com" &&
+                            <MenuItem onClick={()=>{navigate('/nurse/approve');}}>
+                            <ListItemText className="menuitem">Approve Medication Plan</ListItemText>
+                            </MenuItem>
+                        }
                         <Divider/>
                         <MenuItem onClick={logout}>
                             <ListItemIcon>
