@@ -19,7 +19,7 @@ function NursePage() {
         navigate('/doctor/seeFiles');
     };
     const navigateMonitorPatients= () => {
-        navigate('/doctor/seeVitals');
+        navigate('/nurse/monitor');
     };
 
     return (
