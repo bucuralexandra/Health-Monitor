@@ -53,9 +53,8 @@ function AppointmentCard(props)
 
     return(<div style={{display: "flex"}}>
                 <div className="approvedAppointments">
-                    <p>Approved appointments</p>
+                <h4 style={{textAlign:"center"}}>Approved appointments</h4>
                         {approvedAppointments && approvedAppointments.map((item) => (
-                            <div>
                                 <div className='d-flex flex-wrap justify-content-center appointment'> 
                                     <div className='p-2 flex-fill ' key={item.id} id="element" >
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -79,12 +78,12 @@ function AppointmentCard(props)
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         ))}
                 </div>
                 <div className="pendingAppointments">
-                    <p>Incoming appointments</p>
+                <h4 style={{textAlign:"center"}}>Pending appointments</h4>
                     {pendingAppointments && pendingAppointments.map((item)=>(
+                        <div className='d-flex flex-wrap justify-content-center appointment'>
                             <div className='p-2 flex-fill ' key={item.id} id="element" >
                                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                                 <div id="container">
@@ -105,6 +104,7 @@ function AppointmentCard(props)
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     ))}
                 </div>
                

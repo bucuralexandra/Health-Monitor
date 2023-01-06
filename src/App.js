@@ -15,7 +15,7 @@ import SeeVitals from "./doctor/SeeVitals";
 import Header from './common/Header';
 import PdfViewer from './PdfViewer';
 import FilePage from './common/FilePage';
-
+import Chart from './doctor/Chart';
 function App() {
 
   return (
@@ -24,6 +24,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/chart" element={<Chart/>}></Route>
                 <Route path="/pdf" element={<PdfViewer />} />
                 <Route path="/filePage" element={<FilePage />} />
                 <Route path="/login" element={<Login />} />
