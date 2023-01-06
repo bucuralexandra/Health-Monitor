@@ -188,3 +188,44 @@ li{
     color:black;
 }
 
+.myImg
+{
+
+border: 5px solid #000;
+width: 200px;
+height: 200px;
+}
+
+.filePage
+{    
+    display: inline-flex;
+    width: 85%;
+    overflow:auto;
+    margin-top: 2%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+
+}
+
+.modalImg
+{
+    width:100%;
+    height:auto;
+}
+.modal-size
+{   max-width: 80%;
+    width: 80%;
+}
+
+.selectPdf
+{
+    width: 85%;
+    margin: auto;
+}
+
+.seeFilesPage, .SeeVitalsPage
+{
+    width:85%;
+    margin: auto;
+}
+

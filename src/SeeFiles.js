@@ -21,32 +21,21 @@ function SeeFiles() {
             setInputText(lowerCase);
         };
 
-        function importAll(r) {
-            let images = {};
-            r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-            return images;
-        }
-          
-          const images = importAll(require.context('./patient_files', false, /\.(png|jpe?g|svg)$/));
-          
         return (
-            <div className="seeFilesPage">
+            <div>
                 <Header/>
-                <img src={images['patient1_file1.png']} width="10%" /> 
-                <div className="search">
-                    <TextField
-                        id="outlined-basic"
-                        onChange={inputHandler}
-                        variant="outlined"
-                        fullWidth
-                        label="Search"
-                    />
+                <div className="seeFilesPage">
+                    <div className="search">
+                        <TextField
+                            id="outlined-basic"
+                            onChange={inputHandler}
+                            variant="outlined"
+                            fullWidth
+                            label="Search"
+                        />
+                    </div>
+                    <ListPatients input={inputText} />
                 </div>
-                <ListPatients input={inputText} />
-
-               
-
-                
             </div>
         );
 }

@@ -7,7 +7,15 @@
     "alergies" : "none",
     "recentCondition" : "control",
     "maxHeartRate" : "100",
-    "currentHeartRate" : "109"
+    "currentHeartRate" : "109",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
+
   },
   {
     "id" : "1",
@@ -17,7 +25,14 @@
     "alergies" : "none",
     "recentCondition" : "headache",
     "maxHeartRate" : "150",
-    "currentHeartRate" : "109"
+    "currentHeartRate" : "109",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
   },
   {
     "id" : "2",
@@ -27,7 +42,14 @@
     "alergies" : "peanuts, rasberries",
     "recentCondition" : "CT",
     "maxHeartRate" : "150",
-    "currentHeartRate" : "161"
+    "currentHeartRate" : "161",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
   },
   {
     "id" : "3",
@@ -37,7 +59,14 @@
     "alergies" : "none",
     "recentCondition" : "control",
     "maxHeartRate" : "120",
-    "currentHeartRate" : "110"
+    "currentHeartRate" : "110",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
   },
   {
     "id" : "4",
@@ -47,7 +76,14 @@
     "alergies" : "none",
     "recentCondition" : "headache",
     "maxHeartRate" : "100",
-    "currentHeartRate" : "117"
+    "currentHeartRate" : "117",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
   },
   {
     "id" : "5",
@@ -57,7 +93,14 @@
     "alergies" : "none",
     "recentCondition" : "headache",
     "maxHeartRate" : "110",
-    "currentHeartRate" : "100"
+    "currentHeartRate" : "100",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
   },
   {
     "id" : "6",
@@ -67,7 +110,14 @@
     "alergies" : "milk",
     "recentCondition" : "eye stuff",
     "maxHeartRate" : "120",
-    "currentHeartRate" : "121"
+    "currentHeartRate" : "121",
+    "images": [
+      "patient1_file1.png",
+      "patient1_file2.png"
+    ],
+    "pdfs":[
+      "dovada.pdf"
+    ]
   }
 
 ]

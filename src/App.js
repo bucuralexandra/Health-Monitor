@@ -14,6 +14,7 @@ import PersonalizeAlerts from "./PersonalizeAlerts";
 import MonitorPatients from "./MonitorPatients";
 import Header from './Header';
 import PdfViewer from './PdfViewer';
+import FilePage from './FilePage';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/pdf" element={<PdfViewer />} />
+                <Route path="/filePage" element={<FilePage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/nurse" element={<NursePage />} />
                 <Route path="/doctor" element={<DoctorPage/>} />

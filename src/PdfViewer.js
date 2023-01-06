@@ -30,12 +30,7 @@ function PdfViewer() {
     console.log(selectedFile);
     if(selectedFile){
       if(selectedFile&&allowedFiles.includes(selectedFile.type)){
-        let reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onloadend=(e)=>{
-          setPdfError('');
-          setPdfFile(pdfs['dovada.pdf']);
-        }
+       console.log(selectedFile)
       }
       else{
         setPdfError('Not a valid pdf: Please select only PDF');
@@ -75,7 +70,7 @@ const pdfs= importAll(require.context('./patient_files', false, /\.(pdf)$/))
       <h5>View PDF</h5>
       <div className="viewer">
 
-        {/* render this if we have a pdf file */}
+        {/* render this if we have a pdf file *./}
         {pdfFile&&(
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js">
             <Viewer fileUrl={pdfFile}

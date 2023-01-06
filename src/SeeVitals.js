@@ -9,10 +9,8 @@ import {Button, Modal} from "react-bootstrap";
 import patients from "./Patients.json";
 import bellLogoGreen from "./images/bell-fill-green.svg"
 import bellLogoRed from "./images/bell-fill-red.svg"
-import * as PropTypes from "prop-types";
 import {TextareaAutosize} from "@mui/material";
-import data from "bootstrap/js/src/dom/data";
-import {Label} from "@mui/icons-material";
+import {TextField} from '@mui/material';
 
 function Popup(props) {
     return null;
@@ -20,12 +18,23 @@ function Popup(props) {
 
 function SeeVitals() {
 
-
+    const [inputText, setInputText] = useState("");
     const [show, setShow] = useState(false);
     const [selecteduser, setSelecteduser] = useState({});
     const handleClose = () => setShow(false);
-
+    
     const ref = useRef(null);
+
+    const filteredData = patients.filter((el) => {
+        //if no input the return the original
+        if (inputText === '') {
+            return el;
+        }
+        //return the item which contains the user input
+        else {
+            return el.name.toLowerCase().includes(inputText)
+        }
+    })
 
     const sendChat = event => {
         console.log(ref.current.value);
@@ -42,24 +51,45 @@ function SeeVitals() {
         li.innerHTML = "<div class='div-chat'><label class='label-chat' " + ">" + newChat.text + "</label><br/><br/></div>";
         ul.appendChild(li);
     };
+    
+    
+    let inputHandler = (e) => {
+        //convert input text to lower case
+        var lowerCase = e.target.value.toLowerCase();
+        setInputText(lowerCase);
+
+    };
 
     const selectUser = (id) => {
         setSelecteduser(patients[id])
         setShow(true);
     }
-
+    
     useEffect(() => {
         localStorage.setItem("Chat_list", CHAT_MESSAGES);
+
     } , [CHAT_MESSAGES]);
+
+
     return (
+        <div>
+        <Header></Header>
         <div className="SeeVitalsPage">
-            <Header></Header>
-            <ul>
-                {patients.map((item) => (
+            <div className="search">
+                        <TextField
+                            id="outlined-basic"
+                            onChange={inputHandler}
+                            variant="outlined"
+                            fullWidth
+                            label="Search"
+                        />
+             </div>
+            <ul style={{padding:"0px"}}>
+                {filteredData.map((item) => (
                     <li key={item.id}>
                         <div className='p-2 flex-fill ' key={item.id} id="element" >
                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-                            <div id="container" style={{width: "92vw", padding: "17px"}}>
+                            <div id="container" >
                                 <img id="image" src={userLogo} alt={userLogo}/>
                                 <Button variant="outline-dark" onClick={ () => selectUser(item.id)}>Contact</Button>
                                 <img  hidden={item.currentHeartRate > item.maxHeartRate} id="image" src={bellLogoGreen} alt={bellLogoGreen} style={{ height: "30%"}}/>
@@ -113,6 +143,7 @@ function SeeVitals() {
                 </Modal.Footer>
             </Modal>
 
+        </div>
         </div>
     );
 }

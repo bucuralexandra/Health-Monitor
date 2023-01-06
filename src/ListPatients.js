@@ -3,6 +3,8 @@ import data from "./Patients.json"
 import {Button} from "react-bootstrap";
 import userLogo from "./images/person-circle.svg";
 import Modal from "react-bootstrap/Modal"
+import {useNavigate} from "react-router-dom";
+
 function ListPatients(props) {
     //create a new array by filtering the original array
     const filteredData = data.filter((el) => {
@@ -15,20 +17,23 @@ function ListPatients(props) {
             return el.name.toLowerCase().includes(props.input)
         }
     })
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const navigate = useNavigate();
+    const seeFiles = (id)=>
+    {
+        localStorage.setItem("patientId",id);
+        navigate('/filePage');
+    }
 
     return (
         <div>
-        <ul>
+        <ul style={{padding:"0px"}}>
             {filteredData.map((item) => (
                 <li key={item.id} style={{listStyle: "none"}}>
                     <div className='p-2 flex-fill ' key={item.id} id="element" >
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-                        <div id="container" style={{width: "92vw", padding: "17px"}}>
+                        <div id="container" >
                             <img id="image" src={userLogo} alt={userLogo}/>
-                            <Button variant="outline-dark" onClick={handleShow} >See full data</Button>
+                            <Button variant="outline-dark" onClick={()=>seeFiles(item.id)} >See full data</Button>
                             <div className="product-details" >
                                 <h1>{item.name}</h1>
                                 <br></br>
@@ -45,20 +50,7 @@ function ListPatients(props) {
                 </li>
             ))}
         </ul>
-        <Modal show={show} onHide={handleClose} animation={false}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                     </Modal.Footer>
-                </Modal>
+   
     </div>
     )
 }

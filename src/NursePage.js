@@ -13,19 +13,26 @@ import picture from "./images/picture.svg"
 import React from "react";
 
 function NursePage() {
+    const navigate= useNavigate();
 
+    const navigateSeeFiles= () => {
+        navigate('/doctor/seeFiles');
+    };
+    const navigateMonitorPatients= () => {
+        navigate('/doctor/seeVitals');
+    };
 
     return (
         <div className="UserPage">
             <Header></Header>
             <div className="list">
-                <div className="card" id="doctorcard">
+                <div className="card" id="doctorcard" onClick={navigateMonitorPatients}>
                     <img className="card-img-top" src={bell} alt={bell} />
                     <div className="card-body">
                         <p className="card-text">Monitor Patients</p>
                     </div>
                 </div>
-                <div className="card" id="nursecard" >
+                <div className="card" id="nursecard"  onClick={navigateSeeFiles}>
                     <img className="card-img-top" src={files} alt={files} />
                     <div className="card-body">
                         <p className="card-text">See patients' files</p>
