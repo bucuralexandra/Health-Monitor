@@ -16,6 +16,7 @@ import Header from './common/Header';
 import PdfViewer from './PdfViewer';
 import FilePage from './common/FilePage';
 import Chart from './doctor/Chart';
+import ApproveMedication from './nurse/ApproveMedication'
 function App() {
 
   return (
@@ -24,6 +25,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/nurse/approve" element={<ApproveMedication></ApproveMedication>}></Route>
                 <Route path="/chart" element={<Chart/>}></Route>
                 <Route path="/pdf" element={<PdfViewer />} />
                 <Route path="/filePage" element={<FilePage />} />
