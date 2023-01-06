@@ -23,18 +23,25 @@ import Select from 'react-select';
 
 
 function FilePage() {   
-
-        const [inputText, setInputText] = useState("");
         const [img, setImg]= useState('');
         const [show, setShow] = useState(false);
         const [pdfFile, setPdf]= useState('');
         const [showPdf, setShowPdf]=useState(false);
+        const defaultLayoutPluginInstance = defaultLayoutPlugin();
+        const allowedFiles = ['application/pdf','image/png','image/jpg','image/jpeg','image/svg+xml'];
+        const [pdfError, setPdfError]=useState('');
+        const [patient,setPatient]= useState('');
+        const [patientImages,setPatientImages]= useState([]);
+        const [patientPdfs,setPatientPdfs]= useState([]);
+        const [options, setOptions]= useState([]);
+        const images = importAll(require.context('./patient_files', true, /\.(png|jpe?g|svg)$/));
+        const pdfs= importAll(require.context('./patient_files', true, /\.(pdf)$/));
+
         const handleClose = () => 
         {
          setShow(false);
          setShowPdf(false);   
         }
-        const defaultLayoutPluginInstance = defaultLayoutPlugin();
         
         const handleShow = (file) =>{
             setShow(true);
@@ -49,18 +56,25 @@ function FilePage() {
                 setImg(file[1]);
             }
         } 
-
-        let inputHandler = (e) => {
-            //convert input text to lower case
-            var lowerCase = e.target.value.toLowerCase();
-            setInputText(lowerCase);
-        };
-        const allowedFiles = ['application/pdf','image/png','image/jpg','image/jpeg','image/svg+xml'];
+        
         const handleFile = (e) =>{
             let selectedFile = e.target.files[0];
             if(selectedFile){
             if(selectedFile && allowedFiles.includes(selectedFile.type)){
-               console.log(selectedFile);
+               if(selectedFile.type===allowedFiles[0])
+               {
+                let newOptions= options;
+                newOptions.push({value:selectedFile.name,label:selectedFile.name});
+                setOptions(newOptions);
+               }
+               else
+               {
+                   let newPatientImgs=[...patientImages];
+                   newPatientImgs.push([selectedFile.name,images[selectedFile.name]]);
+                   setPatientImages(newPatientImgs);
+                   
+               }
+
             }
             else{
                 setPdfError('Not a valid file: please select only images/PDFs');
@@ -77,16 +91,7 @@ function FilePage() {
             return files;
         }
           
-        const images = importAll(require.context('./patient_files', false, /\.(png|jpe?g|svg)$/));
-        const pdfs= importAll(require.context('./patient_files', false, /\.(pdf)$/))
-        const [pdfError, setPdfError]=useState('');
-        const [patient,setPatient]= useState('');
-        const [patientImages,setPatientImages]= useState([]);
-        const [patientPdfs,setPatientPdfs]= useState([]);
-        const [options, setOptions]= useState([]);
-
         useEffect(() => {
-            //console.log(images);
             const id= parseInt(localStorage.getItem("patientId"));
             setPatient(patients[id]);
             let pimgs=patients[id].images.map((item)=>[item,images[item]]);
@@ -96,9 +101,12 @@ function FilePage() {
             setPatientImages(pimgs);
             setPatientPdfs(ppdfs);
             setOptions(options);
-            console.log(options);
+            console.log(pdfs);
+            console.log(images);
         }, []);
-
+         
+        
+    
         return (
             <div>
             <Header/>

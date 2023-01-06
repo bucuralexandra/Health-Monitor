@@ -32,8 +32,8 @@ function ListPatients(props) {
                     <div className='p-2 flex-fill ' key={item.id} id="element" >
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                         <div id="container" >
-                            <img id="image" src={userLogo} alt={userLogo}/>
-                            <Button variant="outline-dark" onClick={()=>seeFiles(item.id)} >See full data</Button>
+                            <img id="image" style={{margin:"auto"}} src={userLogo} alt={userLogo}/>
+                            <Button style={{margin:"auto"}} variant="outline-dark" onClick={()=>seeFiles(item.id)} >See full data</Button>
                             <div className="product-details" >
                                 <h1>{item.name}</h1>
                                 <br></br>
