@@ -6,11 +6,12 @@ import 'react-calendar/dist/Calendar.css';
 import React, {useEffect, useRef, useState} from "react";
 import userLogo from "./images/person-circle.svg";
 import {Button, Modal} from "react-bootstrap";
-import patients from "./Patients.json";
+import patients from "./PersonalizeAlerts";
 import bellLogoGreen from "./images/bell-fill-green.svg"
 import bellLogoRed from "./images/bell-fill-red.svg"
 import {TextareaAutosize} from "@mui/material";
 import {TextField} from '@mui/material';
+import PersonalizeAlerts from './PersonalizeAlerts'
 
 function Popup(props) {
     return null;
@@ -19,6 +20,7 @@ function Popup(props) {
 function SeeVitals() {
 
     const [inputText, setInputText] = useState("");
+    const [patients,setPatients]= useState([]);
     const [show, setShow] = useState(false);
     const [selecteduser, setSelecteduser] = useState({});
     const handleClose = () => setShow(false);
@@ -67,7 +69,7 @@ function SeeVitals() {
     
     useEffect(() => {
         localStorage.setItem("Chat_list", CHAT_MESSAGES);
-
+        setPatients(JSON.parse(localStorage.getItem("patients")));
     } , [CHAT_MESSAGES]);
 
 
@@ -87,24 +89,63 @@ function SeeVitals() {
             <ul style={{padding:"0px"}}>
                 {filteredData.map((item) => (
                     <li key={item.id}>
-                        <div className='p-2 flex-fill ' key={item.id} id="element" >
-                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-                            <div id="container" >
-                                <img id="image" src={userLogo} alt={userLogo}/>
-                                <Button variant="outline-dark" onClick={ () => selectUser(item.id)}>Contact</Button>
-                                <img  hidden={item.currentHeartRate > item.maxHeartRate} id="image" src={bellLogoGreen} alt={bellLogoGreen} style={{ height: "30%"}}/>
-                                <img hidden={item.currentHeartRate < item.maxHeartRate} id="image" src={bellLogoRed} alt={bellLogoRed} style={{ height: "30%"}}/>
-                                <div className="product-details" >
-                                    <h1>{item.name}</h1>
-                                    <br></br>
-                                    <h1 style={{fontSize:"12px"}}>Date of birth: {item.dateBirth}</h1>
-                                    <br></br><br></br>
-                                    <h1 style={{fontSize:"16px"}}><strong>Heart rate </strong>{item.currentHeartRate}</h1>
-                                    <br></br>
-                                    <h1 style={{fontSize:"16px"}}><strong>Max allowed heart rate </strong>{item.maxHeartRate}</h1>
+                            <div className="myContainer" >
+                                <div className='row'>
+                                <div className='col-md-4'>
+                                <h1 style={{fontSize:"20px"}}>{item.name}</h1>
+                                <h1 style={{fontSize:"16px"}}>Date of birth: {item.dateBirth}</h1>
+                                <h1 style={{fontSize:"16px"}}>Condition: {item.recentCondition}</h1>
                                 </div>
+                                <div className='col-md-2' style={{margin:"auto"}}>
+                                    <Button variant="outline-dark" onClick={ () => selectUser(item.id)}>Contact</Button>
+                                </div>
+                                <div className='col-md-3'> 
+                                { 
+                                item.temperature> item.maxTemperature || item.minTemperature< item.minHeartRate  
+                                ? <h1 style={{fontSize:"16px", color:"red"}} ><strong>Body temperature </strong>{item.temperature}</h1>
+                                : <h1 style={{fontSize:"16px", color:"green"}} ><strong>Body temperature </strong>{item.temperature}</h1>
+                                }
+                                { 
+                                item.currentHeartRate> item.maxHeartRate || item.currentHeartRate< item.minHeartRate  
+                                ? <h1 style={{fontSize:"16px", color:"red"}} ><strong>Heart rate </strong>{item.currentHeartRate}</h1>
+                                : <h1 style={{fontSize:"16px", color:"green"}} ><strong>Heart rate </strong>{item.currentHeartRate}</h1>
+                                }
+                               
+                                { 
+                                item.breathingRate> item.maxBreathRate || item.breathingRate< item.minBreathRate  
+                                ? <h1 style={{fontSize:"16px", color:"red"}} ><strong>Breathing rate </strong>{item.breathingRate}</h1>
+                                : <h1 style={{fontSize:"16px", color:"green"}} ><strong>Breathing rate </strong>{item.breathingRate}</h1>
+                                }
+                                 { 
+                                item.systolicPressure> item.maxSystolic || item.systolicPressure< item.minSystolic  
+                                ? <h1 style={{fontSize:"16px", color:"red"}} ><strong>Systolic blood pressure </strong>{item.systolicPressure}</h1>
+                                : <h1 style={{fontSize:"16px", color:"green"}} ><strong>Systolic blood pressure </strong>{item.systolicPressure}</h1>
+                                }
+                                </div>
+                                <div className='col-md-3'>
+                               
+                                { 
+                                item.diastolicPressure> item.maxDiastolic || item.diastolicPressure< item.minDiastolic  
+                                ? <h1 style={{fontSize:"16px", color:"red"}} ><strong>Diastolic blood pressure </strong>{item.diastolicPressure}</h1>
+                                : <h1 style={{fontSize:"16px", color:"green"}} ><strong>Diastolic blood pressure </strong>{item.diastolicPressure}</h1>
+                                }
+                                
+                                { 
+                                item.bloodGlucose> item.maxGlucose || item.bloodGlucose< item.minGlucose  
+                                ? <h1 style={{fontSize:"16px", color:"red"}} ><strong>Blood Glucose </strong>{item.bloodGlucose}</h1>
+                                : <h1 style={{fontSize:"16px", color:"green"}} ><strong>Blood Glucose </strong>{item.bloodGlucose}</h1>
+                                }
+                                {
+                                    item.followsMedicationPlan && 
+                                    <h1 style={{fontSize:"16px",color:"orange", display:"flex-block"}} ><img style= {{marginTop:"-1%"}}src={bellLogoGreen}/><strong>Medication Reminder</strong></h1>                                
+                                }
+
+
+                                </div>
+                                    
+        
+                              </div>
                             </div>
-                        </div>
                     </li>
                 ))}
             </ul>
@@ -120,7 +161,6 @@ function SeeVitals() {
                         {CHAT_MESSAGES.map((message) => (
                             <li key={message.id} style={{listStyle: "none"}}>
                                 {
-
                                     (message.idUser == -1 || message.idUser ===
                                     selecteduser.id) &&
                                     <div className="div-chat">

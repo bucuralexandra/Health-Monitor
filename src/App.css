@@ -229,11 +229,11 @@ height: 200px;
     margin: auto;
 }
 
-.myContainer
+.myContainer 
 {   margin-top: 30px;
     width: 100%;
     height: fit-content;
-    padding-bottom: 2em;
+    padding-bottom: 0em;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }

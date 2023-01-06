@@ -15,7 +15,7 @@ import doctorLogo from "./images/doctor.svg"
 import nurseLogo from "./images/nurse.svg"
 import {useNavigate} from "react-router-dom";
 import popover from "bootstrap/js/src/popover";
-
+import patients from "./Patients.json"
 
 function Login() {
 
@@ -47,6 +47,7 @@ function Login() {
     function loginNurse(){
        const email = document.getElementById('form3');
        const password = document.getElementById('form4');
+       localStorage.setItem("patients",JSON.stringify(patients));
        if(email.value === nurse.email && password.value === nurse.password)
        {
            localStorage.setItem("nursep" , nurse.password);
@@ -68,6 +69,7 @@ function Login() {
         var password = document.getElementById('form4');
         console.log(email);
         console.log(password);
+        localStorage.setItem("patients",JSON.stringify(patients));
         if(email.value === doctor.email && password.value === doctor.password)
         {
             localStorage.setItem("doctorp" , doctor.password);

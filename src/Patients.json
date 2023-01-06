@@ -211,7 +211,7 @@
     "dateBirth" : "09-09-2000",
     "alergies" : "none",
     "recentCondition" : "headache",
-    "currentHeartRate" : 100,
+    "currentHeartRate" : 101,
     "images": [
       "prescription.png",
       "drug_doses.png"

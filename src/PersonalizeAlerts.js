@@ -35,7 +35,9 @@ function PersonalizeAlerts() {
         console.log(event.target.name);
         newPatients[id][event.target.name]=event.target.checked;
         setPatients(newPatients);
+        localStorage.setItem("patients",JSON.stringify(patients));
     }
+    
 
     const handleTextFieldChange = (id,event)=>
     {
@@ -44,12 +46,14 @@ function PersonalizeAlerts() {
         console.log(event.target.name);
         newPatients[id][event.target.name]=parseFloat(event.target.value);
         setPatients(newPatients);
+        localStorage.setItem("patients",JSON.stringify(patients));
+        
     }
 
     useEffect(() => {    
         setPatients(patientsData);
     } , []);
-
+    
     return (
         <div>
             <Header></Header>
@@ -120,7 +124,302 @@ function PersonalizeAlerts() {
         </div>
     );
 
+    
 }
 
+/*let PATIENTS = [
+    {
+      id : "0",
+      username : "drosca",
+      name : "Diana Rosca",
+      dateBirth : "08-10-1975",
+      alergies : "none",
+      recentCondition : "control",
+      currentHeartRate : 109,
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+    },
+    {
+      id : "1",
+      username : "abucur",
+      name : "Bucur Alexandra",
+      dateBirth : "13-05-2000",
+      alergies : "none",
+      recentCondition : "headache",
+      currentHeartRate : 109,
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+      
+    },
+    {
+      id : "2",
+      username : "mpop",
+      name : "Pop Mihai",
+      dateBirth : "23-05-2001",
+      alergies : "peanuts, rasberries",
+      recentCondition : "CT",
+      currentHeartRate : 161,
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+    },
+    {
+      id : "3",
+      username : "sgaga",
+      name : "Sergiu Gaga",
+      dateBirth : "13-05-2000",
+      alergies : "none",
+      recentCondition : "control",
+      currentHeartRate : 110,
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+    },
+    {
+      id : "4",
+      username : "bpop",
+      name : "Pop Bogdan",
+      dateBirth : "13-05-2000",
+      alergies : "none",
+      recentCondition : "headache",
+      currentHeartRate : 117,
+      
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+    },
+    {
+      id : "5",
+      username : "mslav",
+      name : "Monica Slavescu",
+      dateBirth : "09-09-2000",
+      alergies : "none",
+      recentCondition : "headache",
+      currentHeartRate : 100,
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+    },
+    {
+      id : "6",
+      username : "bhulpe",
+      name : "Briana Hulpe",
+      dateBirth : "13-06-2000",
+      alergies : "milk",
+      recentCondition : "eye stuff",
+      currentHeartRate : 121,
+      images: [
+        "prescription.png",
+        "drug_doses.png"
+      ],
+      pdfs:[
+        "dovada.pdf"
+      ],
+      minTemperature:36.5,
+      maxTemperature:37.5,
+      maxHeartRate:100,
+      minHeartRate:60,
+      minBreathRate:12,
+      maxBreathRate:16,
+      maxSystolic:120,
+      maxDiastolic:80,
+      minSystolic:90,
+      minDiastolic:60,
+      minGlucose:4,
+      maxGlucose:6,
+      followsMedicationPlan:true,
+      systolicPressureCheck:true,
+      diastolicPressureCheck:true,
+      bloodGlucoseCheck:true,
+      breathingRateCheck:true,
+      temperatureCheck:false,
+      heartRateCheck:true,
+      systolicPressure:100,
+      diastolicPressure:70,
+      bloodGlucose:5,
+      breathingRate:14,
+      temperature:38,
+      heartRate:120
+    }
+  
+  ]
+  */
 
+ 
 export default PersonalizeAlerts;
