@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import healthlogo from "./images/health-logo.svg";
+import healthlogo from "../images/health-logo.svg";
 import "./Header.css"
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import {Logout} from "@mui/icons-material";
 import {useNavigate} from "react-router-dom";
-import menuicon from "./images/menu.jpg"
+import menuicon from "../images/menu.jpg"
 import Calendar from "react-calendar";
 function Header() {
 

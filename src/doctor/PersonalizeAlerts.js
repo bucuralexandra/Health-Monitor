@@ -1,10 +1,10 @@
-import './Login.css';
-import Header from "./Header";
+import '../common/Login.css';
+import Header from "../common/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "../App.css"
 import 'react-calendar/dist/Calendar.css';
 import React, {useEffect, useState} from "react";
-import patientsData from "./Patients.json";
+import patientsData from "../common/Patients.json";
 import { TextField } from '@mui/material';
 import Button from "react-bootstrap/Button"
 import { Checkbox } from '@mui/material';
@@ -57,7 +57,6 @@ function PersonalizeAlerts() {
     return (
         <div>
             <Header></Header>
-
             <div className="SeeVitalsPage">
             <div className="search">
                         <TextField

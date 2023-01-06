@@ -1,20 +1,20 @@
-import './Login.css';
+import './common/Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 
-import Login from "./Login";
+import Login from "./common/Login";
 import React from "react";
-import HomePage from "./HomePage";
-import NursePage from "./NursePage";
-import DoctorPage from "./DoctorPage";
-import ManageAppointments from "./ManageAppointments";
-import MonitorPatients from "./MonitorPatients";
-import SeeFiles from "./SeeFiles";
-import PersonalizeAlerts from "./PersonalizeAlerts";
-import SeeVitals from "./SeeVitals";
-import Header from './Header';
+import HomePage from "./common/HomePage";
+import NursePage from "./nurse/NursePage";
+import DoctorPage from "./doctor/DoctorPage";
+import ManageAppointments from "./doctor/ManageAppointments";
+import MonitorPatients from "./nurse/MonitorPatients";
+import SeeFiles from "./common/SeeFiles";
+import PersonalizeAlerts from "./doctor/PersonalizeAlerts";
+import SeeVitals from "./doctor/SeeVitals";
+import Header from './common/Header';
 import PdfViewer from './PdfViewer';
-import FilePage from './FilePage';
+import FilePage from './common/FilePage';
 
 function App() {
 

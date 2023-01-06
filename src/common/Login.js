@@ -11,8 +11,8 @@ import {
 }
     from 'mdb-react-ui-kit';
 
-import doctorLogo from "./images/doctor.svg"
-import nurseLogo from "./images/nurse.svg"
+import doctorLogo from "../images/doctor.svg"
+import nurseLogo from "../images/nurse.svg"
 import {useNavigate} from "react-router-dom";
 import popover from "bootstrap/js/src/popover";
 import patients from "./Patients.json"

@@ -1,7 +1,7 @@
 import { React ,useState} from 'react'
 import data from "./Patients.json"
 import {Button} from "react-bootstrap";
-import userLogo from "./images/person-circle.svg";
+import userLogo from "../images/person-circle.svg";
 import Modal from "react-bootstrap/Modal"
 import {useNavigate} from "react-router-dom";
 

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Button, Modal} from "react-bootstrap";
-import './Login.css';
+import '../common/Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "../App.css"
 import 'react-calendar/dist/Calendar.css';
 import { format } from 'date-fns'
 
@@ -37,6 +37,7 @@ function AppointmentCard(props)
         appointment.status="approved";
         let approvedList= approvedAppointments;
         approvedList.push(appointment);
+        //const approvedList= approvedAppointments.push(appointment);
         SetPendingAppointments(pendingList);
         SetApprovedAppointments(approvedList);
     }
@@ -52,8 +53,9 @@ function AppointmentCard(props)
 
     return(<div style={{display: "flex"}}>
                 <div className="approvedAppointments">
-                    <h4 style={{ textAlign:"center"}}>Approved appointments</h4>
+                    <p>Approved appointments</p>
                         {approvedAppointments && approvedAppointments.map((item) => (
+                            <div>
                                 <div className='d-flex flex-wrap justify-content-center appointment'> 
                                     <div className='p-2 flex-fill ' key={item.id} id="element" >
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -77,12 +79,12 @@ function AppointmentCard(props)
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         ))}
                 </div>
                 <div className="pendingAppointments">
-                    <h4 style={{textAlign:"center"}}>Incoming appointments</h4>
+                    <p>Incoming appointments</p>
                     {pendingAppointments && pendingAppointments.map((item)=>(
-                        <div className='d-flex flex-wrap justify-content-center appointment'> 
                             <div className='p-2 flex-fill ' key={item.id} id="element" >
                                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                                 <div id="container">
@@ -103,7 +105,6 @@ function AppointmentCard(props)
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     ))}
                 </div>
                
@@ -226,5 +227,5 @@ let APPOINTMENTS = [
         status : "approved",
         phone: "0733928191"
     }
-]
+] 
 export default AppointmentCard;

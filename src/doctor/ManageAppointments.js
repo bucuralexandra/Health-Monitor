@@ -1,7 +1,7 @@
-import './Login.css';
-import Header from "./Header";
+import '../common/Login.css';
+import Header from "../common/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "../App.css"
 import 'react-calendar/dist/Calendar.css';
 import React, {useEffect, useState} from "react";
 import Calendar from "react-calendar";

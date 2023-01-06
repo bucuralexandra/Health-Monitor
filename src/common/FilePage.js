@@ -1,7 +1,7 @@
 import './Login.css';
 import Header from "./Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "../App.css"
 import 'react-calendar/dist/Calendar.css';
 import React, {useState,useEffect} from "react";
 import {TextField} from "@mui/material";
@@ -34,8 +34,8 @@ function FilePage() {
         const [patientImages,setPatientImages]= useState([]);
         const [patientPdfs,setPatientPdfs]= useState([]);
         const [options, setOptions]= useState([]);
-        const images = importAll(require.context('./patient_files', true, /\.(png|jpe?g|svg)$/));
-        const pdfs= importAll(require.context('./patient_files', true, /\.(pdf)$/));
+        const images = importAll(require.context('../patient_files', true, /\.(png|jpe?g|svg)$/));
+        const pdfs= importAll(require.context('../patient_files', true, /\.(pdf)$/));
 
         const handleClose = () => 
         {

@@ -2,10 +2,10 @@ import './Login.css';
 import Header from "./Header";
 import {useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
-import doctor from "./images/doctor.svg"
-import nurse from "./images/nurse.svg"
-import picture from "./images/picture.svg"
+import "../App.css"
+import doctor from "../images/doctor.svg"
+import nurse from "../images/nurse.svg"
+import picture from "../images/picture.svg"
 
 import React from "react";
 

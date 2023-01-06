@@ -1,14 +1,14 @@
-import './Login.css';
-import Header from "./Header";
+import '../common/Login.css';
+import Header from "../common/Header";
 import {useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "../App.css"
 
 
-import bell from "./images/bell-fill.svg"
+import bell from "../images/bell-fill.svg"
 
-import files from "./images/file-earmark-medical-fill.svg"
-import picture from "./images/picture.svg"
+import files from "../images/file-earmark-medical-fill.svg"
+import picture from "../images/picture.svg"
 
 import React from "react";
 

@@ -1,21 +1,14 @@
-import './Login.css';
-import Header from "./Header";
+import '../common/Login.css';
+import Header from "../common/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css"
+import "../App.css"
 import 'react-calendar/dist/Calendar.css';
 import React, {useEffect, useRef, useState} from "react";
-import userLogo from "./images/person-circle.svg";
 import {Button, Modal} from "react-bootstrap";
-import patients from "./PersonalizeAlerts";
-import bellLogoGreen from "./images/bell-fill-green.svg"
-import bellLogoRed from "./images/bell-fill-red.svg"
+import bellLogoGreen from "../images/bell-fill-green.svg"
 import {TextareaAutosize} from "@mui/material";
 import {TextField} from '@mui/material';
-import PersonalizeAlerts from './PersonalizeAlerts'
 
-function Popup(props) {
-    return null;
-}
 
 function MonitorPatients() {
 
@@ -149,7 +142,6 @@ function MonitorPatients() {
                     </li>
                 ))}
             </ul>
-
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
