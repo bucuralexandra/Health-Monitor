@@ -26,7 +26,7 @@
     "minDiastolic":60,
     "minGlucose":4,
     "maxGlucose":6,
-    "followsMedicationPlan":true,
+    "followsMedicationPlan":false,
     "systolicPressureCheck":true,
     "diastolicPressureCheck":true,
     "bloodGlucoseCheck":true,
@@ -37,8 +37,9 @@
     "diastolicPressure":70,
     "bloodGlucose":5,
     "breathingRate":14,
-    "temperature":38,
-    "heartRate":120
+    "temperature":37,
+    "heartRate":120,
+    "recentMedicationPlan" : "You will have to go and buy several meds from the pharmacy, such as:\n-paracetamol\n-insulin\n-nurofen"
   },
   {
     "id" : "1",
@@ -79,7 +80,8 @@
     "bloodGlucose":5,
     "breathingRate":14,
     "temperature":38,
-    "heartRate":120
+    "heartRate":120,
+    "recentMedicationPlan" : "Buy: nurofen"
   },
   {
     "id" : "2",
@@ -120,7 +122,8 @@
     "bloodGlucose":5,
     "breathingRate":14,
     "temperature":38,
-    "heartRate":120
+    "heartRate":120,
+    "recentMedicationPlan" : "You will have to go and buy several meds from the pharmacy, such as: paracetamol\n-insulin\n--nurofen"
   },
   {
     "id" : "3",
@@ -147,7 +150,7 @@
     "maxDiastolic":80,
     "minSystolic":90,
     "minDiastolic":60,
-    "followsMedicationPlan":true,
+    "followsMedicationPlan":false,
     "minGlucose":4,
     "maxGlucose":6,
     "systolicPressureCheck":true,
@@ -160,7 +163,7 @@
     "diastolicPressure":70,
     "bloodGlucose":5,
     "breathingRate":14,
-    "temperature":38,
+    "temperature":37,
     "heartRate":120
   },
   {
@@ -202,7 +205,8 @@
     "bloodGlucose":5,
     "breathingRate":14,
     "temperature":38,
-    "heartRate":120
+    "heartRate":120,
+    "recentMedicationPlan" : "onds,xcsdvn"
   },
   {
     "id" : "5",
@@ -243,7 +247,8 @@
     "bloodGlucose":5,
     "breathingRate":14,
     "temperature":38,
-    "heartRate":120
+    "heartRate":120,
+    "recentMedicationPlan" : "Youuuuu will have to go and buy several meds from the pharmacy, such as: paracetamol\n\rinsulin\n\rnurofen"
   },
   {
     "id" : "6",
@@ -284,7 +289,8 @@
     "bloodGlucose":5,
     "breathingRate":14,
     "temperature":38,
-    "heartRate":120
+    "heartRate":120,
+    "recentMedicationPlan" : "You will have to go and 34hfwax buy several meds from the pharmacy, such as: paracetamol\n\rinsulin\n\rnurofen"
   }
 
 ]

@@ -1,6 +1,6 @@
-import React, {useState,useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Header from "../common/Header";
-import { TextField } from "@mui/material";
+import {TextareaAutosize, TextField} from "@mui/material";
 import Modal from 'react-bootstrap/Modal';
 //import {Button} from "@mui/material";
 import Button from 'react-bootstrap/Button'
@@ -11,7 +11,8 @@ function SeeVitals() {
     const [show, setShow] = useState(false);
     const [patient,setPatient]=useState({});
     const [colors,setColors]= useState([]);
-    
+    const ref = useRef(null);
+
     const handleClose=()=>{
       setShow(false);
     };
@@ -41,12 +42,17 @@ function SeeVitals() {
     })
 
     const handleButton = (color)=>
-    {   
+    {
+        console.log(ref.current.value);
         let newColors= [...colors];
         newColors[patient.id]=color;
         setColors(newColors);
         setShow(false);
         console.log(newColors);
+
+        let updatedPatient = patient;
+        updatedPatient.recentMedicationPlan = document.getElementById("medication").value;
+        setPatient(updatedPatient);
     }
 
     useEffect(() => {
@@ -88,12 +94,14 @@ function SeeVitals() {
                     </div>
                 ))
              }
-             <Modal show={show} onHide={handleClose} animation={false} dialogClassName="modal-size">
+             <Modal show={show} onHide={handleClose} animation={false} dialogClassName="modal-size" >
                     <Modal.Header closeButton>
                     <Modal.Title>Medication plan of {patient.name}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body >
-                    
+                        <TextareaAutosize
+                            ref={ref} id="medication"
+                        >{patient.recentMedicationPlan}</TextareaAutosize>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="danger" onClick={()=>handleButton("rgba(171, 17, 40, 0.9)")} >Deny</Button>

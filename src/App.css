@@ -237,4 +237,8 @@ height: 200px;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
+#medication{
+    width: 100%;
+    border-style: none;
+}
 
