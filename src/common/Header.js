@@ -36,7 +36,7 @@ function Header() {
         navigate('/doctor/alerts');
     };
     const navigateMonitorPatients= () => {
-
+        
         navigate('/nurse/monitor');
     };
     const seeMenuItem = () => {
@@ -46,7 +46,9 @@ function Header() {
         else setHidden("none");
     }
     const logout = () => {
-        localStorage.clear();
+    
+        localStorage.removeItem("doctore");
+        localStorage.removeItem("nursee");
         setHidden("none")
         navigate("/")
     }

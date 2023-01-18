@@ -242,3 +242,4 @@ height: 200px;
     border-style: none;
 }
 
+.input-error { border: 1px solid #f00; }

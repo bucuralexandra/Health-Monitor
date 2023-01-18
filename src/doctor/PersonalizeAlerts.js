@@ -41,13 +41,42 @@ function PersonalizeAlerts() {
 
     const handleTextFieldChange = (id,event)=>
     {
-        console.log(event.target.value);
+      
         let newPatients= [...patients];
-        console.log(event.target.name);
-        newPatients[id][event.target.name]=parseFloat(event.target.value);
-        setPatients(newPatients);
-        localStorage.setItem("patients",JSON.stringify(patients));
-        
+       // if(parseFloat(event.target.value))
+       const pattern= /^[+-]?\d+(\.\d+)?$/;
+      
+        if(pattern.test(event.target.value))
+        { 
+          const min = parseFloat(document.getElementById(id+'min'+event.target.name.substr(3)).value)
+          const max = parseFloat( document.getElementById(id+'max'+event.target.name.substr(3)).value)
+         if(min<0 || max<0)
+         {
+          document.getElementById(id+event.target.name.substr(3)).textContent="Cannot be a negative value"
+          
+         } 
+         else if(min<max)
+          {
+            console.log("Min<Max")
+            document.getElementById(id+event.target.name.substr(3)).textContent=""
+            console.log(id+event.target.name.substr(3))
+            newPatients[id][event.target.name]=parseFloat(event.target.value);
+            setPatients(newPatients);
+            localStorage.setItem("patients",JSON.stringify(patients));
+          
+          }
+          else
+          {
+            document.getElementById(id+event.target.name.substr(3)).textContent="Min value should be strictly smaller than the max value"
+            
+          }
+        }
+        else
+        { 
+          console.log(Math.floor(id/10)+1," error")
+          document.getElementById(id+event.target.name.substr(3)).textContent="Not a number"
+          
+        }
     }
 
     useEffect(() => {    
@@ -74,40 +103,58 @@ function PersonalizeAlerts() {
                                 <div className='myContainer'>
                                     <h3 style={{textAlign:"center"}}>{item.name}</h3>
                                     <div className='row' style={{width:"100%"}}>
-                                        <label className='col-md-3' style={{textAlign:"left",margin:"auto", marginLeft:"2em"}}>Body temperature (°C): </label> 
-                                        <TextField name ="minTemperature" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minTemperature} placeholder='minTemperature'></TextField>
-                                        <TextField name ="maxTemperature" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxTemperature} placeholder='maxTemperature'></TextField>
+                                         <label className='col-md-3' style={{margin:"auto", marginLeft:"2em",textAlign:"left"}} >Body temperature (°C): </label>                                     
+                                        <TextField id ={item.id+ "minTemperature"} name="minTemperature"onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minTemperature} placeholder='minTemperature'></TextField>
+                                        <TextField id ={item.id+ "maxTemperature"} name= "maxTemperature"onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxTemperature} placeholder='maxTemperature'></TextField>
                                         <Checkbox  name ="temperatureCheck" onChange={(e)=>handleCheckBox(item.id,e)} checked={item.temperatureCheck}  className='col'  style={{textAlign:"center", margin:"auto"}}  color="success"></Checkbox> 
+                                    </div>
+                                    <div className='row'>
+                                    <label id={item.id+"Temperature"}  style={{textAlign:"center",margin:"auto",color:"red"}}></label>
                                     </div>
                                     <div className='row' style={{width:"100%"}}>
                                         <label className='col-md-3' style={{textAlign:"left", margin:"auto", marginLeft:"2em"}}>Pulse rate (bpm): </label> 
-                                        <TextField name ="minHeartRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minHeartRate} placeholder='minHeartRate'></TextField>
-                                        <TextField name ="maxHeartRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxHeartRate} placeholder='maxHeartRate'></TextField>
+                                        <TextField id={item.id+ "minHeartRate"} name ="minHeartRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minHeartRate} placeholder='minHeartRate'></TextField>
+                                        <TextField id={item.id+ "maxHeartRate"} name ="maxHeartRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxHeartRate} placeholder='maxHeartRate'></TextField>
                                         <Checkbox  name ="heartRateCheck" onChange={(e)=>handleCheckBox(item.id,e)}  checked={item.heartRateCheck} className='col'  style={{textAlign:"center", margin:"auto"}}  color="success"></Checkbox>
+                                    </div>
+                                    <div className='row'>
+                                    <label id={item.id+"HeartRate"}  style={{textAlign:"center",margin:"auto",color:"red"}}></label>
                                     </div>
                                     <div className='row' style={{width:"100%"}}>
                                         <label className='col-md-3' style={{textAlign:"left", margin:"auto", marginLeft:"2em"}}>Breathing rate (breaths pm): </label> 
-                                        <TextField name ="minBreathRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minBreathRate} placeholder='minBreathRate'></TextField>
-                                        <TextField name ="maxBreathRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxBreathRate} placeholder='maxBreathRate'></TextField>
+                                        <TextField id={item.id+ "minBreathRate"} name ="minBreathRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minBreathRate} placeholder='minBreathRate'></TextField>
+                                        <TextField id={item.id+ "maxBreathRate"} name ="maxBreathRate" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxBreathRate} placeholder='maxBreathRate'></TextField>
                                         <Checkbox  name ="breathingRateCheck" onChange={(e)=>handleCheckBox(item.id,e)}  checked={item.breathingRateCheck} className='col'  style={{textAlign:"center", margin:"auto"}}  color="success"></Checkbox>
+                                    </div>
+                                    <div className='row'>
+                                    <label id={item.id+"BreathRate"}  style={{textAlign:"center",margin:"auto",color:"red"}}></label>
                                     </div>
                                     <div className='row' style={{width:"100%"}}>
                                         <label className='col-md-3' style={{textAlign:"left", margin:"auto", marginLeft:"2em"}}>Systolic blood pressure (mmHg): </label> 
-                                        <TextField  name ="minSystolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minSystolic} placeholder='minSystolic'></TextField>
-                                        <TextField name ="maxSystolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxSystolic} placeholder='maxSystolic'></TextField>
+                                        <TextField id={item.id+ "minSystolic"} name ="minSystolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minSystolic} placeholder='minSystolic'></TextField>
+                                        <TextField id={item.id+ "maxSystolic"} name ="maxSystolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxSystolic} placeholder='maxSystolic'></TextField>
                                         <Checkbox  name ="systolicPressureCheck" onChange={(e)=>handleCheckBox(item.id,e)}  checked={item.systolicPressureCheck} className='col'  style={{textAlign:"center", margin:"auto"}}  color="success"></Checkbox>
+                                    </div>
+                                    <div className='row'>
+                                    <label id={item.id+"Systolic"}  style={{textAlign:"center",margin:"auto",color:"red"}}></label>
                                     </div>
                                     <div className='row' style={{width:"100%"}}>
                                         <label className='col-md-3' style={{textAlign:"left", margin:"auto", marginLeft:"2em"}}>Diastolic blood pressure (mmHg): </label>
-                                        <TextField name ="minDiastolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minDiastolic} placeholder='minDiastolic'></TextField>
-                                        <TextField name ="maxDiastolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxDiastolic} placeholder='maxDiastolic'></TextField>
+                                        <TextField id={item.id+ "minDiastolic"} name ="minDiastolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minDiastolic} placeholder='minDiastolic'></TextField>
+                                        <TextField id={item.id+ "maxDiastolic"} name ="maxDiastolic" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxDiastolic} placeholder='maxDiastolic'></TextField>
                                         <Checkbox   name ="diastolicPressureCheck" onChange={(e)=>handleCheckBox(item.id,e)}  checked={item.diastolicPressureCheck} className='col'  style={{textAlign:"center", margin:"auto"}}  color="success"></Checkbox>
+                                    </div>
+                                    <div className='row'>
+                                    <label id={item.id+"Diastolic"}  style={{textAlign:"center",margin:"auto",color:"red"}}></label>
                                     </div>
                                     <div className='row' style={{width:"100%"}}>
                                         <label className='col-md-3' style={{textAlign:"left", margin:"auto", marginLeft:"2em"}}>Blood glucose (mmol/L): </label> 
-                                        <TextField name ="minGlucose" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minGlucose} placeholder='minGlucose'></TextField>
-                                        <TextField name ="maxGlucose" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxGlucose} placeholder='maxGlucose'></TextField>
+                                        <TextField id={item.id+ "minGlucose"} name ="minGlucose" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.minGlucose} placeholder='minGlucose'></TextField>
+                                        <TextField id={item.id+ "maxGlucose"} name ="maxGlucose" onChange={(e)=>handleTextFieldChange(item.id,e)} className='col-md-3' defaultValue={item.maxGlucose} placeholder='maxGlucose'></TextField>
                                         <Checkbox  name ="bloodGlucoseCheck" onChange={(e)=>handleCheckBox(item.id,e)} checked={item.bloodGlucoseCheck} className='col'  style={{textAlign:"center", margin:"auto"}}  color="success"></Checkbox>
+                                    </div>
+                                    <div className='row'>
+                                    <label id={item.id+"Glucose"}  style={{textAlign:"center",margin:"auto",color:"red"}}></label>
                                     </div>
                                     <div className='row' style={{width:"100%"}}>
                                         <label className='col-md-3' style={{textAlign:"left", margin:"auto", marginLeft:"2em"}}>Medication plan: </label> 

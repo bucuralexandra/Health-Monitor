@@ -100,8 +100,8 @@ function MonitorPatients() {
                                 }
                                 { 
                                 item.currentHeartRate> item.maxHeartRate || item.currentHeartRate< item.minHeartRate  
-                                ? <h1 hidden= {!item.hearRateCheck}  style={{fontSize:"16px", color:"red"}} ><strong>Heart rate </strong>{item.currentHeartRate}</h1>
-                                : <h1 hidden= {!item.hearRateCheck}  style={{fontSize:"16px", color:"green"}} ><strong>Heart rate </strong>{item.currentHeartRate}</h1>
+                                ? <h1 hidden= {!item.heartRateCheck}  style={{fontSize:"16px", color:"red"}} ><strong>Heart rate </strong>{item.currentHeartRate}</h1>
+                                : <h1 hidden= {!item.heartRateCheck}  style={{fontSize:"16px", color:"green"}} ><strong>Heart rate </strong>{item.currentHeartRate}</h1>
                                 }
                                
                                 { 
